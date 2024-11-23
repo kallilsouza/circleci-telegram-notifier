@@ -5,7 +5,7 @@ from src.templates.base import BaseTemplate
 
 class WorkflowTemplate(BaseTemplate):
     template = Template(
-        "New <b>CircleCI</b> event received.\n\n"
+        "New <b>CircleCI</b> event received\n\n"
         "Type: <b>${event_type}</b>\n"
         "Workflow status: <b>${event_workflow_status}</b>\n\n"
         "Project: <b>${project_name}</b>\n"
