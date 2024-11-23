@@ -12,4 +12,4 @@ class TelegramClient:
 
     def send_pipeline_update(self, message: str) -> None:
         for chat_id in self.chat_ids:
-            asyncio.run(self.bot.send_message(chat_id, message))
+            asyncio.run(self.bot.send_message(chat_id, message, parse_mode="markdown"))
