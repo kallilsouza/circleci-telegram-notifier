@@ -1,5 +1,6 @@
 [tool.poetry]
 name = "circleci-telegram-notifier"
+packages = [{ include = "*", from = "src" }]
 version = "0.1.0"
 description = ""
 authors = ["Kallil Souza dos Santos <eu@kallil.net.br>"]
@@ -7,6 +8,9 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+python-telegram-bot = "^21.7"
+python-dotenv = "^1.0.1"
+ipython = "^8.29.0"
 
 
 [build-system]
