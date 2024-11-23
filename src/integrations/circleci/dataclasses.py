@@ -73,8 +73,8 @@ class TriggerParameters:
     """Trigger data associated to the pipeline"""
 
     circleci: CircleCI
-    git: dict | None
-    gitlab: dict | None
+    git: dict | None = None
+    gitlab: dict | None = None
 
 
 @dataclass
