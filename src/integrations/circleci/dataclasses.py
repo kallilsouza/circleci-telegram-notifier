@@ -1,7 +1,7 @@
 # https://circleci.com/docs/webhooks-reference/
 from dataclasses import dataclass
 
-from integrations.circleci.enums import EventTypes
+from src.integrations.circleci.enums import EventTypes
 
 
 @dataclass
@@ -105,6 +105,6 @@ class Event:
     webhook: dict
     project: Project
     organization: Organization
-    job: Job | None
-    workflow: Workflow | None
     pipeline: Pipeline
+    job: Job | None = None
+    workflow: Workflow | None = None
