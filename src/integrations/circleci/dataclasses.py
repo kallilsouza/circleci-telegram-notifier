@@ -103,8 +103,8 @@ class Event:
     type: EventTypes
     happened_at: str
     webhook: dict
-    project: Project
-    organization: Organization
-    pipeline: Pipeline
+    project: Project | None = None
+    organization: Organization | None = None
     job: Job | None = None
     workflow: Workflow | None = None
+    pipeline: Pipeline | None = None

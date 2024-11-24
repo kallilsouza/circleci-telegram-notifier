@@ -1,10 +1,14 @@
 from src.templates.base import BaseTemplate
+from src.templates.ping import PingTemplate
 from src.templates.workflow import WorkflowTemplate
 from src.integrations.circleci.dataclasses import Event
 from src.integrations.circleci.enums import EventTypes
 
 
-EVENT_TYPE_TEMPLATE_MAPPING = {EventTypes.WORKFLOW_COMPLETED.value: WorkflowTemplate}
+EVENT_TYPE_TEMPLATE_MAPPING = {
+    EventTypes.WORKFLOW_COMPLETED.value: WorkflowTemplate,
+    EventTypes.PING.value: PingTemplate,
+}
 
 
 class TemplateFactory:

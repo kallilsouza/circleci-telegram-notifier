@@ -15,8 +15,11 @@ def lambda_handler(event, context):
 
     service = NotifierService()
 
-    event_data["project"] = Project(**event_data.pop("project"))
-    event_data["organization"] = Organization(**event_data.pop("organization"))
+    if project_data := event_data.pop("project", None):
+        event_data["project"] = Project(**project_data)
+
+    if organization_data := event_data.pop("organization", None):
+        event_data["organization"] = Organization(**organization_data)
 
     if job_data := event_data.pop("job", None):
         event_data["job"] = Job(**job_data)
