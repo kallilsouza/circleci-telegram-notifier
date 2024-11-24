@@ -33,7 +33,7 @@ class Job:
     name: str
     status: str
     started_at: str
-    stopped_at: str | None
+    stopped_at: str | None = None
 
 
 @dataclass
@@ -45,10 +45,10 @@ class Workflow:
 
     id: str
     name: str
-    status: str | None
-    created_at: str
-    stopped_at: str | None
     url: str
+    created_at: str
+    stopped_at: str | None = None
+    status: str | None = None
 
 
 @dataclass
@@ -65,7 +65,7 @@ class CircleCI:
     event_time: str
     event_type: str
     trigger_type: str
-    actor_id: str | None
+    actor_id: str | None = None
 
 
 @dataclass
@@ -91,8 +91,8 @@ class Pipeline:
     number: str
     created_at: str
     trigger: Trigger
-    trigger_parameters: TriggerParameters | None
-    vcs: dict | None
+    trigger_parameters: TriggerParameters | None = None
+    vcs: dict | None = None
 
 
 @dataclass
