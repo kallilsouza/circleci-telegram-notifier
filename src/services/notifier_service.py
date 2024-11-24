@@ -1,5 +1,3 @@
-from string import Template
-
 from src.integrations.circleci.dataclasses import Event
 from src.integrations.telegram.client import TelegramClient
 from src.factories.template_factory import TemplateFactory
