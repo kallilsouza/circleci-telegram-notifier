@@ -1,16 +1,22 @@
 import json
 
-import src.responses.status as status
-
-from src.integrations.circleci.dataclasses import Event, Job, Workflow
-from src.responses.classes import HttpResponse
+from src.integrations.circleci.dataclasses import (
+    Event,
+    Job,
+    Workflow,
+    Organization,
+    Project,
+)
 from src.services.notifier_service import NotifierService
 
 
 def lambda_handler(event, context):
-    event_data = json.loads(event.get("body"))
+    event_data = json.loads(event["Records"][0]["Sns"]["Message"])
 
     service = NotifierService()
+
+    event_data["project"] = Project(**event_data.pop("project"))
+    event_data["organization"] = Organization(**event_data.pop("organization"))
 
     if job_data := event_data.pop("job", None):
         event_data["job"] = Job(**job_data)
@@ -20,5 +26,3 @@ def lambda_handler(event, context):
 
     event = Event(**event_data)
     service.notify_users(event)
-
-    return HttpResponse(data={}, status_code=status.HTTP_204_NO_CONTENT).send()
