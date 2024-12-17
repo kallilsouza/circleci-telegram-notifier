@@ -69,12 +69,31 @@ class CircleCI:
 
 
 @dataclass
+class Git:
+    commit_author_name: str
+    repo_owner: str
+    branch: str
+    commit_message: str
+    repo_url: str
+    ref: str
+    author_avatar_url: str
+    checkout_url: str
+    author_login: str
+    repo_name: str
+    commit_author_email: str
+    checkout_sha: str
+    default_branch: str
+
+
+@dataclass
 class TriggerParameters:
     """Trigger data associated to the pipeline"""
 
     circleci: CircleCI
-    git: dict | None = None
+    git: Git | None = None
     gitlab: dict | None = None
+    github_app: dict | None = None
+    webhook: dict | None = None
 
 
 @dataclass
