@@ -25,20 +25,16 @@ New <b>CircleCI</b> event received
 | Name: <b>{{ event_workflow_name }}</b>
 | URL: <b>{{ event_workflow_url }}</b>
 
-{% if event_pipeline %}
-<b>Pipeline details:</b>
+{% if event_pipeline %}<b>Pipeline details:</b>
 | ID: <b>{{ event_pipeline.id }}</b>
 | Number: <b>{{ event_pipeline.number }}</b>
-| Created at: <b>{{ event_pipeline.created_at }}</b>    
-{% endif %}
-{% if event_pipeline and event_pipeline.trigger_parameters and event_pipeline.trigger_parameters.git %}
-<b>Git information details:</b>
+| Created at: <b>{{ event_pipeline.created_at }}</b>    {% endif %}
+{% if event_pipeline and event_pipeline.trigger_parameters and event_pipeline.trigger_parameters.git %}<b>Git information details:</b>
 | Repo name: <b>{{ event_pipeline.trigger_parameters.git.repo_name }}</b>
 | Repo url: <b>{{ event_pipeline.trigger_parameters.git.repo_url }}</b>
 | Branch: <b>{{ event_pipeline.trigger_parameters.git.branch }}</b>
 | Commit author name: <b>{{ event_pipeline.trigger_parameters.git.commit_author_name }}</b>
-| Commit author email: <b>{{ event_pipeline.trigger_parameters.git.commit_author_email }}</b>
-{% endif %}
+| Commit author email: <b>{{ event_pipeline.trigger_parameters.git.commit_author_email }}</b>{% endif %}
     """
 
     def get_message(self):
