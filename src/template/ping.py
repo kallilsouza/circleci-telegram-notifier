@@ -1,6 +1,6 @@
 from string import Template
 
-from src.templates.base import BaseTemplate
+from src.template.base import BaseTemplate
 
 
 class PingTemplate(BaseTemplate):

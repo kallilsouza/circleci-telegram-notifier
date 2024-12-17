@@ -1,7 +1,7 @@
-from src.templates.base import BaseTemplate
-from src.templates.ping import PingTemplate
-from src.templates.job import JobTemplate
-from src.templates.workflow import WorkflowTemplate
+from src.template.base import BaseTemplate
+from src.template.ping import PingTemplate
+from src.template.job import JobTemplate
+from src.template.workflow import WorkflowTemplate
 from src.integrations.circleci.dataclasses import Event
 from src.integrations.circleci.enums import EventTypes
 
